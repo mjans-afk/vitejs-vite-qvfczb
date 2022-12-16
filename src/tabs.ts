@@ -9,6 +9,12 @@ import { customElement, property } from 'lit/decorators.js';
  */
 @customElement('my-tabs')
 export class Tabs extends LitElement {
+
+  static styles=css`
+  .bx-ce-demo-devenv--tab-panels {background-color: white}
+  .contentPanel {min-width:1600px;}
+  `
+
   render() {
     return html`
     <bx-tabs trigger-content="Select an item" value="staging">
@@ -16,7 +22,8 @@ export class Tabs extends LitElement {
     <bx-tab id="tab-staging" target="panel-staging" value="staging">Bundle courses</bx-tab>
   </bx-tabs>
   <div class="bx-ce-demo-devenv--tab-panels">
-    <div id="panel-all" role="tabpanel" aria-labelledby="tab-all" hidden>
+    <div id="panel-all" role="tabpanel" class="contentPanel" aria-labelledby="tab-all" hidden>
+    <text-area>Bundle Name</text-area>
       <tree-table></tree-table>
     </div>
     <div id="panel-cloudFoundry" role="tabpanel" aria-labelledby="tab-cloudFoundry" hidden>
